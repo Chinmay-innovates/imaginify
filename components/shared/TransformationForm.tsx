@@ -49,7 +49,8 @@ const TransformationForm = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isTransforming, setIsTransforming] = useState(false);
   const [transformationConfig, setTransformationConfig] = useState(config);
-  const [isPending, startTransition] = useTransition();// lets you update the state without blocking the ui
+  const [isPending, startTransition] = useTransition();
+  // lets you update the state without blocking the UI
   const router = useRouter();
   const initialValues =
     data && action === "Update"
@@ -110,22 +111,20 @@ const TransformationForm = ({
     return onChangeField(value);
   };
 
-
   //TODO : return to  update credits
   const onTransformHandler = async () => {
-    setIsTransforming(true)
+    setIsTransforming(true);
 
     setTransformationConfig(
       deepMergeObjects(newtransformations, transformationConfig)
-    )
+    );
 
-    setNewtransformations(null)
+    setNewtransformations(null);
 
     startTransition(async () => {
-      await updateCredits(userId, creditFee)
-    })
-  }
-
+      await updateCredits(userId, creditFee);
+    });
+  };
 
   return (
     <Form {...form}>
@@ -221,7 +220,7 @@ const TransformationForm = ({
             disabled={isTransforming || newtransformations === null}
             onClick={onTransformHandler}
           >
-             {isTransforming ? 'Transforming...' : 'Apply Transformation'}
+            {isTransforming ? "Transforming..." : "Apply Transformation"}
           </Button>
 
           <Button
@@ -229,7 +228,7 @@ const TransformationForm = ({
             className="submit-button capitalize"
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Submitting...' : 'Save Image'}
+            {isSubmitting ? "Submitting..." : "Save Image"}
           </Button>
         </div>
       </form>
