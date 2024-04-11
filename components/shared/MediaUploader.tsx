@@ -74,7 +74,7 @@ const MediaUploader = ({
             </div>
           ) : (
             <div className="media-uploader_cta" onClick={() => open()}>
-              HERE IS NO IMAGE
+           
               <div className="media-uploader_cta-image">
                 <Image
                   src="/assets/icons/add.svg"
